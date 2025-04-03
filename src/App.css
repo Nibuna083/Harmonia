@@ -1,38 +1,151 @@
-.App {
-  text-align: center;
+:root {
+  --primary-color: #6c5ce7;
+  --secondary-color: #a8a4e9;
+  --background-color: #f8f9fa;
+  --surface-color: #ffffff;
+  --text-primary: #2d3436;
+  --text-secondary: #636e72;
+  --hover-color: #f1f2f6;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.music-player-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+/* Header styles */
+.heading {
+  text-align: center;
+  padding: 2rem;
+  background: var(--surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.heading h1 {
+  color: var(--primary-color);
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.heading p {
+  color: var(--text-secondary);
+  margin: 0.5rem 0;
+}
+
+/* Song List */
+.song-list {
+  width: 300px;
+  padding: 2rem;
+  background: var(--surface-color);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.song-list h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.song-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.song-list li {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.song-list li:hover {
+  background: var(--hover-color);
+  color: var(--primary-color);
+}
+
+.song-list .active {
+  background: var(--primary-color);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.song-list .active:hover {
+  background: var(--primary-color);
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Player */
+.player {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: var(--surface-color);
+}
+
+.player h1 {
+  color: var(--text-primary);
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.music-btn {
+  background: var(--primary-color);
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(108, 92, 231, 0.2);
+}
+
+.music-btn:hover {
+  background: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+.music-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .music-player-container {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .song-list {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .player {
+    padding: 2rem 1rem;
   }
 }
